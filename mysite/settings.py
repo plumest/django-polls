@@ -21,11 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'd400eb3bqb@+u^a%h0(=6-#wc$@z#0a0wj0u0$=4xk38-i#+m_'
-
+ 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '158.108.138.180']
+ALLOWED_HOSTS = ['localhost', '158.108.138.180', '127.0.0.1']
 
 
 # Application definition
@@ -106,13 +106,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bangkok'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False 
 
 
 # Static files (CSS, JavaScript, Images)
