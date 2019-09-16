@@ -1,0 +1,5 @@
+# this is a comment line
+Django >= 2.1.2
+pytz >= 2019.2
+sqlporse >= 0.3.0
+python-decouple >= 3.1
