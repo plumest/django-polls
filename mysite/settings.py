@@ -11,19 +11,25 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+# from unipath import Path
+from decouple import config
+import dj_database_url as db_url
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = Path(__file__).parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd400eb3bqb@+u^a%h0(=6-#wc$@z#0a0wj0u0$=4xk38-i#+m_'
+# SECRET_KEY = 'd400eb3bqb@+u^a%h0(=6-#wc$@z#0a0wj0u0$=4xk38-i#+m_'
+SECRET_KEY = config('SECRET_KEY', default="secret")
  
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool, default=False)
 
 ALLOWED_HOSTS = ['*']
 
@@ -74,6 +80,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': config(
+#         'DATABASE_URL',
+#         default='sqlite:///' + BASE_DIR.child('db.sqlite3'),
+#         cast=db_url
+#     )
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -106,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Bangkok'
+TIME_ZONE = config('TIMEZONE', default='UTC')
 
 USE_I18N = True
 
