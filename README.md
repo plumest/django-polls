@@ -20,9 +20,9 @@ git clone https://github.com/plumest/django-polls.git
 ```   
     
 ### Step 2     
-Install requirements:    
+Go to `django-poll` directory:    
 ```
-Open Terminal and type command:
+Open Terminal and type command (make your path in django-poll diretory):
 
     For Windows:
         pip install -r requirements.txt
@@ -30,6 +30,17 @@ Open Terminal and type command:
     For Mac/Linux
         pip3 install -r requirements.txt
 ```
+  
+### Step 3
+Migrate your database:  
+```
+    For Windows:
+        python manage.py migrate
+    
+    For Mac/Linux
+        python3 manage.py migrate
+```
+Make sure you have `db.sqlite3` file in `django-poll`  
   
  ## Running  
   
