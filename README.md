@@ -45,10 +45,13 @@ Make sure you have `db.sqlite3` file in `django-poll`
  ## Running  
   
 ### Step 1    
-Go to `django-polls` directory    
+Run following command on the Terminal to go to `django-poll` directory    
+```
+cd django-poll
+```    
 
 ### Step 2   
-Run following command on the Terminal 
+Run following command on the Terminal    
  ```
     For Windows:
         python manage.py runserver <IPv4>:<PORT>
