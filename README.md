@@ -21,42 +21,54 @@ git clone https://github.com/plumest/django-polls.git
 ### Step 2     
 Go to `django-poll` directory:    
 ```
-Open Terminal and type command (make your path in django-poll diretory):
+cd django-poll
+```
 
-    For Windows:
-        pip install -r requirements.txt
+### Step 3
+Create virtual environment.    
+```
+For Windows:
+    python -m venv venv
 
-    For Mac/Linux
-        pip3 install -r requirements.txt
+For Mac/Linux:
+    python3 -m venv venv
+```
+### Step 4
+Activate virtual environment.
+```
+For Windows:
+    venv\bin\activate.bat
+
+For Mac/Linux:
+    source venv/bin/activate
+```
+### Step 5
+Install requirements.    
+```
+pip install -r requirements.txt
 ```
   
-### Step 3
+### Step 6
 Migrate your database:  
 ```
-    For Windows:
-        python manage.py migrate
-    
-    For Mac/Linux
-        python3 manage.py migrate
+python manage.py migrate
 ```
 Make sure you have `db.sqlite3` file in `django-poll`  
   
  ## Running  
   
 ### Step 1    
-Run following command on the Terminal to go to `django-poll` directory    
-```
-cd django-poll
-```    
+Go to `django-poll` directory    
 
 ### Step 2   
-Run following command on the Terminal    
+Run following command on the Terminal   
+(Activate virtual environment like installation step 2 first)    
  ```
-    For Windows:
-        python manage.py runserver <IPv4>:<PORT>
+For local:
+    python manage.py runserver
 
-    For Mac/Linux:
-        python3 manage.py runserver <IPv4>:<PORT>
+For server:
+    python manage.py runserver <IPv4>:<PORT>
  ```
 ***IPv4_Address*** : Your IPv4 (default is localhost).  
 ***PORT*** : Port that you want to run server (default is 8000).  
