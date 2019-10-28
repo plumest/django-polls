@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: auto;
+    border: 1px solid #555;
+    border-radius: 5px;
+    width: 350px;
+    height: 400px;
+}
+
+li {
+    margin: 20px auto;
+}
+
+li a {
+    color: #fff;
+    padding: 5px 10px;
+    background: #6c5ce7;
+    border: 1px solid #6c5ce7;
+    border-radius: 15px;
+}
