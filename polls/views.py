@@ -1,8 +1,10 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
-from django.views import generic
 from django.utils import timezone
+from django.views import generic
+from django.contrib import messages
+
 from .models import Choice, Question
 
 
@@ -17,7 +19,7 @@ class IndexView(generic.ListView):
         """
         return Question.objects.filter(
             pub_date__lte=timezone.now()
-        ).order_by('-pub_date')[:5]
+        ).order_by('pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
@@ -49,3 +51,16 @@ def vote(request, question_id):
         selected_choice.votes += 1
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+
+def reset_index(request):
+    all_question_list = Question.objects.all()
+    context = {'all_question_list': all_question_list}
+    return render(request, 'polls/reset_polls.html', context)
+
+
+def reset(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    question.reset_votes()
+    messages.success(request, f'Reset votes for Poll \"{question.question_text}"')
+    return HttpResponseRedirect(reverse('polls:reset_index'))
