@@ -22,3 +22,17 @@ li a {
     border: 1px solid #6c5ce7;
     border-radius: 15px;
 }
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+a:focus {
+    text-decoration: none;
+}
