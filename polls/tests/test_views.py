@@ -4,7 +4,7 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from polls.models import Question
+from polls.models.question import Question
 
 
 class QuestionIndexViewTests(TestCase):

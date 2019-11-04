@@ -5,7 +5,8 @@ from django.utils import timezone
 from django.views import generic
 from django.contrib import messages
 
-from .models import Choice, Question
+from polls.models.question import Question
+from polls.models.choice import Choice
 
 
 class IndexView(generic.ListView):
@@ -19,7 +20,7 @@ class IndexView(generic.ListView):
         """
         return Question.objects.filter(
             pub_date__lte=timezone.now()
-        ).order_by('pub_date')[:5]
+        ).order_by('-pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
