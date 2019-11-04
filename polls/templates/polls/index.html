@@ -1,8 +1,5 @@
 {% extends 'components/base.html' %}
 
-{#{% block header %}#}
-
-{#{% endblock %}#}
 
 {% block content %}
     <section class="hero is-info is-bold">
@@ -12,19 +9,29 @@
                 <p class="subtitle">Welcome back, {{ user.username.title }}</p>
             {% else %}
                 <p class="subtitle">
-                    Please <a href="{% url 'login' %}?next={{ request.path }}">login</a> to vote for a topic.
+                    Please <a class="button is-primary is-inverted is-small is-outlined"
+                              href="{% url 'login' %}?next={{ request.path }}">login
+                    </a> to vote for a topic.
                 </p>
             {% endif %}
         </div>
     </section>
 
-    {% if latest_question_list %}
-        <ul>
-        {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-        {% endfor %}
-        </ul>
-    {% else %}
-    <p>No polls are available.</p>
-{% endif %}
+    <section class="section">
+        <div class="container">
+            {% if latest_question_list %}
+                <div class="buttons">
+                {% for question in latest_question_list %}
+                <a class="button is-fullwidth is-info is-outlined is-rounded"
+                   href="{% url 'polls:detail' question.id %}">
+                    {{ question.question_text }}
+                </a>
+                {% endfor %}
+                </div>
+            {% else %}
+                <p>No polls are available.</p>
+            {% endif %}
+        </div>
+    </section>
+
 {% endblock %}
