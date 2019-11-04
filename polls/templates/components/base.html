@@ -1,0 +1,31 @@
+{% extends 'components/navbar.html' %}
+
+{% block header %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Django Polls</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+        {# {% load static %} #}
+        {# <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"> #}
+    </head>
+    <body>
+{% endblock %}
+
+{% block body %}
+
+    {% block content %}
+    {% endblock  %}
+
+{% endblock %}
+
+{% block footer %}
+</body>
+</html>
+{% endblock %}
