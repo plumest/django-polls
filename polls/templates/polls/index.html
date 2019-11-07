@@ -9,7 +9,7 @@
                 <p class="subtitle">Welcome back, {{ user.username.title }}</p>
             {% else %}
                 <p class="subtitle">
-                    Please <a class="button is-primary is-inverted is-small is-outlined"
+                    Please <a class="button is-info is-inverted is-small is-outlined"
                               href="{% url 'login' %}?next={{ request.path }}">login
                     </a> to vote for a topic.
                 </p>

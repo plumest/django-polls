@@ -60,6 +60,12 @@
             </div>
           </div>
         </div>
+    {% else %}
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <a class="button is-info is-outlined" href="{% url 'logout' %}?next={{ request.path }}">Log out</a>
+            </div>
+        </div>
     {% endif %}
 
 
