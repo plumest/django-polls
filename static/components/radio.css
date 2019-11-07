@@ -1,0 +1,24 @@
+.radioChoice {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  text-transform: capitalize;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  margin: 0 3% 0 3%; }
+  .radioChoice input[type="radio"] {
+    display: none; }
+  .radioChoice span {
+    height: 30px;
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid #555;
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    z-index: -100; }
+
+/*# sourceMappingURL=radio.css.map */
