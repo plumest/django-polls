@@ -1,3 +1,6 @@
+@import "../vendor/bulma/sass/utilities/_all"
+
+
 .radioChoice
     display: flex
     position: relative
@@ -13,13 +16,30 @@
     input[type="radio"]
       display: none
 
-
     span
         height: 30px
         width: 100%
         border-radius: 15px
-        border: 1px solid #555
-        background-color: #fff
+        border: 1px solid $info
+        background-color: $white
         display: block
         position: absolute
         z-index: -100
+
+    span:after
+        content: ""
+        height: 30px
+        width: 100%
+        border-radius: 15px
+        border: 1px solid $info
+        background-color: $info
+        display: block
+        position: absolute
+        left: 50%
+        top: 50%
+        z-index: -99
+        transform: translate(-50%, -50%) scale(0)
+        //transition: 300ms ease-in-out 0s
+
+    input[type="radio"]:checked ~ span:after
+        transform: translate(-50%, -50%) scale(1)
