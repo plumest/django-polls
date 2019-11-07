@@ -296,5 +296,12 @@ sketch
 
 # End of https://www.gitignore.io/api/vue,venv,sass,python,django,pycharm
 
+# ignore vscode
 .idea
 .vscode
+
+# ignore files from sass
+static/**/*.css
+static/**/*.css.map
+static/**/**/*.css
+static/**/**/*.css.map
