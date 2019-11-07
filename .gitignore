@@ -295,3 +295,6 @@ thumb
 sketch
 
 # End of https://www.gitignore.io/api/vue,venv,sass,python,django,pycharm
+
+.idea
+.vscode
