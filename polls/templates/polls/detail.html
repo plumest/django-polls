@@ -31,7 +31,8 @@
                         <label class="radioChoice" for="choice{{ forloop.counter }}">
                             <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
                             {{ choice.choice_text }}
-                            <span></span>
+                            <span class="background"></span>
+                            <span class="circle"><i class="fas fa-check-circle"></i></span>
                         </label><br>
                     {% endfor %}
                 <dev class="buttons section">
