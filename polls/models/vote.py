@@ -10,8 +10,3 @@ class Vote(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    # TODO: how to add a uniqueness constraint on database so is only one vote per (User, Question) pair.
-
-
-
