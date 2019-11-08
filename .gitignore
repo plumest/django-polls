@@ -299,9 +299,4 @@ sketch
 # ignore vscode
 .idea
 .vscode
-
-# ignore files from sass
-static/**/*.css
-static/**/*.css.map
-static/**/**/*.css
-static/**/**/*.css.map
+polls/migrations/
