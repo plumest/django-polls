@@ -1,10 +1,29 @@
-<h1>{{ question.question_text }}</h1>
+{% extends 'components/base.html' %}
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+{% block content %}
+<section class="hero is-info is-bold">
+    <div class="hero-body">
+        <h2 class="title is-2">{{ question.question_text }}</h2>
+    </div>
+</section>
 
-<a href="{% url 'polls:index' %}">Back to polls</a>
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+<div class="container">
+    <section class="section">
+        <ul>
+        {% for choice in question.choice_set.all %}
+            <li>{{ choice.choice_text }} -- {{ choice.total_votes }} vote{{ choice.total_votes|pluralize }}</li>
+        {% endfor %}
+        </ul>
+
+        <div class="buttons">
+            <a class="button" href="{% url 'polls:detail' question.id %}">Vote again?</a>
+            <a class="button" href="{% url 'polls:index' %}">Back to List of Polls</a>
+            {% if user.is_authenticated %}
+                <a class="button" href="{% url 'logout' %}">logout</a>
+            {% endif %}
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}
