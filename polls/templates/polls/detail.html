@@ -1,4 +1,5 @@
 {% extends 'components/base.html' %}
+{% load filter %}
 
 {% block content %}
     <div class="hero">
@@ -28,7 +29,11 @@
                 {% csrf_token %}
                     {% for choice in question.choice_set.all %}
                         <div class="inputGroup">
-                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                            {% if choice|check_votes:user == 0 %}
+                                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                            {% else %}
+                                <input type="radio" checked="checked" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                            {% endif %}
                             <label class="radioChoice" for="choice{{ forloop.counter }}">
                                 {{ choice.choice_text }}
                             </label>
