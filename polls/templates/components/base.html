@@ -1,0 +1,41 @@
+{% extends 'components/navbar.html' %}
+{% load sass_tags %}
+
+{% block header %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Django Polls</title>
+
+        {#    Vue.js    #}
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        {#    Font Awesome    #}
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        {#    Bulma.sass    #}
+        <link rel="stylesheet" href="{% sass_src 'vendor/bulma/bulma.sass' %}">
+        <link rel="stylesheet" href="{% sass_src 'components/radio.sass' %}">
+    </head>
+    <body>
+{% endblock %}
+
+{% block body %}
+
+    <div id="app">
+        {% block content %}
+        {% endblock  %}
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+</body>
+    <script>
+        var app = new Vue(){
+            el: '#app',
+        }
+    </script>
+</html>
+{% endblock %}
