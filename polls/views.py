@@ -4,9 +4,11 @@ from django.urls import reverse
 from django.utils import timezone
 from django.views import generic
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from polls.models.question import Question
 from polls.models.choice import Choice
+from polls.models.vote import Vote
 
 
 class IndexView(generic.ListView):
@@ -39,6 +41,7 @@ class ResultsView(generic.DetailView):
     template_name = 'polls/results.html'
 
 
+@login_required
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
