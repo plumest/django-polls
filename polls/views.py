@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 from polls.models.question import Question
 from polls.models.choice import Choice
@@ -52,8 +53,13 @@ def vote(request, question_id):
             'error_message': "You didn't select a choice.",
         })
     else:
-        selected_choice.votes += 1
-        selected_choice.save()
+        find_vote = Vote.objects.filter(question=question, user=request.user)
+        print(f'{find_vote=}')
+        if find_vote.count() != 0:
+            for user_vote in find_vote:
+                user_vote.delete()
+        new_vote = selected_choice.vote_set.create(question=question, choice=selected_choice, user=request.user)
+        new_vote.save()
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 
