@@ -45,13 +45,13 @@ For Mac/Linux:
 ### Step 5
 Install requirements.    
 ```
-pip install -r requirements.txt
+(venv) pip install -r requirements.txt
 ```
   
 ### Step 6
 Migrate your database:  
 ```
-python manage.py migrate
+(venv) python manage.py migrate
 ```
 Make sure you have `db.sqlite3` file in `django-poll`  
   
@@ -61,14 +61,7 @@ Make sure you have `db.sqlite3` file in `django-poll`
 Go to `django-poll` directory    
 
 ### Step 2   
-Run following command on the Terminal   
-(Activate virtual environment like installation step 2 first)    
+Run following command on the Terminal    
  ```
-For local:
-    python manage.py runserver
-
-For server:
-    python manage.py runserver <IPv4>:<PORT>
- ```
-***IPv4_Address*** : Your IPv4 (default is localhost).  
-***PORT*** : Port that you want to run server (default is 8000).  
+(venv) python manage.py runserver
+ ``` 
