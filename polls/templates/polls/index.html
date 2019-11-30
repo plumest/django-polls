@@ -4,7 +4,7 @@
 {% block content %}
     <section class="hero is-info is-bold">
         <div class="hero-body">
-            <h2 class="title is-2">Hot Topics</h2>
+            <h2 class="title is-2" id="my_title">Hot Topics</h2>
             {% if user.is_authenticated %}
                 <p class="subtitle">Welcome back, {{ user.username.title }}</p>
             {% else %}
@@ -18,18 +18,19 @@
     </section>
 
     <section class="section">
-        <div class="container">
+        <div class="container" id="question-container">
             {% if latest_question_list %}
                 <div class="buttons">
                 {% for question in latest_question_list %}
-                <a class="button is-fullwidth is-info is-outlined is-rounded"
+                <a class="button is-fullwidth is-info is-outlined is-rounded question"
+                   id="questionId{{ question.id }}"
                    href="{% url 'polls:detail' question.id %}">
                     {{ question.question_text }}
                 </a>
                 {% endfor %}
                 </div>
             {% else %}
-                <p>No polls are available.</p>
+                <p id="no-polls">No polls are available.</p>
             {% endif %}
         </div>
     </section>

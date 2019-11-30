@@ -4,7 +4,7 @@
 <form method="POST">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Login</button>
+  <button type="submit" id="loginButton">Login</button>
   <!-- if your app redirects user to login before accessing some pages, then next contains return url -->
   <input type="hidden" name="next" value="{{ next }}" />
 </form>
