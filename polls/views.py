@@ -54,7 +54,6 @@ def vote(request, question_id):
         })
     else:
         find_vote = Vote.objects.filter(question=question, user=request.user)
-        print(f'{find_vote=}')
         if find_vote.count() != 0:
             for user_vote in find_vote:
                 user_vote.delete()
