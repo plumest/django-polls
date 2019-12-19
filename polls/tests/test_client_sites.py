@@ -4,6 +4,7 @@ from polls.models.question import Question
 from polls.models.choice import Choice
 from django.contrib.auth.models import User
 from django.test.client import Client
+from decouple import config
 
 
 class FrontendTest(LiveServerTestCase):
@@ -15,7 +16,7 @@ class FrontendTest(LiveServerTestCase):
         chrome_options.add_argument('-–incognito')
         cls.selenium = webdriver.Chrome(
             chrome_options=chrome_options,
-            executable_path="/Users/p.lumest/Desktop/chromedriver"
+            executable_path=config('CHORME_DRIVER_PATH', default='')
         )
         super(FrontendTest, cls).setUpClass()
 
